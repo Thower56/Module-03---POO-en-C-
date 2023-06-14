@@ -23,11 +23,24 @@ Personne::Personne(const Personne& p_PersonneACopier)
 
 Personne::Personne(const Personne&& p_rvalue)
 {
-	this->setNom(p_rvalue.m_nom);
-	this->setPrenom(p_rvalue.m_prenom);
-	this->setAge(p_rvalue.m_age);
-	this->setTaille(p_rvalue.m_taille);
-	std::cout << "Ctor par Deplacement" << std::endl;
+    this->setNom(p_rvalue.m_nom);
+    this->setPrenom(p_rvalue.m_prenom);
+    this->setAge(p_rvalue.m_age);
+    this->setTaille(p_rvalue.m_taille);
+    p_rvalue.m_nom = 0;
+    p_rvalue.m_prenom = 0;
+    p_rvalue.m_age = 0;
+    p_rvalue.m_taille = 0;
+    std::cout << "Ctor par Deplacement" << std::endl;
+}
+
+Personne::Personne(const Personne&& p_rvalue)
+{
+    this->setNom(p_rvalue.m_nom);
+    this->setPrenom(p_rvalue.m_prenom);
+    this->setAge(p_rvalue.m_age);
+    this->setTaille(p_rvalue.m_taille);
+    std::cout << "Ctor par Deplacement" << std::endl;
 }
 
 Personne::~Personne() {}
